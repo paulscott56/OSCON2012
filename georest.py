@@ -57,4 +57,4 @@ def get_documentlatlon():
     entries = [entry for entry in entity]
     return MongoEncoder().encode(entries)
 
-run(host='geo.chisimba.com', port=8080)
+run(host='localhost', port=8080)

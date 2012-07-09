@@ -7,8 +7,7 @@ from json import JSONEncoder
 from pymongo.objectid import ObjectId
 
 class MongoEncoder(JSONEncoder):
-    def _iterencode(self, o, markers=None):
-        o = ''
+    def _iterencode(self, o, markers=None):     
         if isinstance(o, ObjectId):
             return """ObjectId("%s")""" % str(o)
         else:
@@ -51,7 +50,7 @@ def get_documentlatlon():
     radius = int(radius)
     lat = float(lat)
     lon = float(lon)
-    entity=db['places'].find({"loc": {"$within": {"$center": [[lat, lon], radius]}}}, {'_id':0}).limit(20)
+    entity=db['places'].find({"loc": {"$within": {"$center": [[lon, lat], radius]}}}, {'_id':0}).limit(20)
     if not entity:
         abort(404, 'No document with name %s' % name)
     # Iterate over results

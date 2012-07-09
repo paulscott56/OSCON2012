@@ -1,20 +1,20 @@
 <?php
-        // create curl resource
-        $ch = curl_init();
+// create curl resource
+$ch = curl_init();
 
-        // set url
-        curl_setopt($ch, CURLOPT_URL, "http://geo.chisimba.com:8080/loc?lat=18.512740000000001&lon=-33.891150000000003&radius=10");
+// set url
+curl_setopt($ch, CURLOPT_URL, "http://geo.chisimba.com:8080/loc?lat=18.512740000000001&lon=-33.891150000000003&radius=10");
 
-        //return the transfer as a string
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+//return the transfer as a string
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 
-        // $output contains the output string
-        $output = curl_exec($ch);
+// $output contains the output string
+$output = curl_exec($ch);
 
-        // close curl resource to free up system resources
-        curl_close($ch);     
+// close curl resource to free up system resources
+curl_close($ch);     
 
 $dataobject = json_decode($output);
 
-var_dump($dataobject->data);
+var_dump($dataobject);
 ?>

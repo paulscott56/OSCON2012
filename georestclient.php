@@ -3,7 +3,7 @@
 $ch = curl_init();
 
 // set url
-curl_setopt($ch, CURLOPT_URL, "http://geo.chisimba.com:8080/loc?lat=18.512740000000001&lon=-33.891150000000003&radius=10");
+curl_setopt($ch, CURLOPT_URL, "http://localhost:8080/loc?lat=18.512740000000001&lon=-33.891150000000003&radius=10");
 
 //return the transfer as a string
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
